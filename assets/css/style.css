@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Galdeano&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
+
+body, ul, p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+body {
+    font: 400 1.25rem/1.125 Arial, Helvetica, sans-serif;
+    background-color: #333;
+    color: #FFF;
+    min-width: 305px;
+    overflow-x: hidden;
+}
+
+* {
+    outline: none;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content {
+    max-width: 1366px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.page-header {
+    padding: 20px 0;
+}
+
+.page-header .content, .page-main .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font: 400 2.25rem/1 'Patrick Hand', cursive;
+    padding: 15px 30px;
+    /* transition: transform 0.3s ease 0s; */
+    /* Убрал transition на изменение масштаба, потому что во время анимации края у шрифта размываются */
+}
+
+.logo:hover, .logo:focus {
+    transform: scale(1.05);
+}
+
+.menu {
+    padding: 0 10px;
+}
+
+.menu > ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    padding: 20px 30px;
+    font-weight: 700;
+    transition: color, background 0.3s ease 0s;
+    text-transform: uppercase;
+}
+
+.menu a:hover, .menu a:focus {
+    background-color: #222;
+}
+
+.contact {
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    padding: 16px 32px;
+    margin: 10px 30px;
+    font-size: 0.9rem;
+    letter-spacing: -1px;
+    transition: color, background 0.3s ease 0s;
+    text-transform: uppercase;
+}
+
+.contact:hover, .contact:focus {
+    background-color: #FFF;
+    color: #333;
+}
+
+.page-main {
+    flex-grow: 1;
+    background: url('../img/bg.jpg') center center no-repeat;
+    background-size: cover;
+    padding: 30px 0;
+}
+
+.phone {
+    font-size: 0;
+    margin-top: 15px;
+}
+
+.phone img {
+    max-height: 560px;
+    cursor: pointer;
+}
+
+.phone img:hover, .phone img:focus {
+    transform: scale(1.05);
+}
+
+.checklist p {
+    color: #111;
+    font-size: 4rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    transition: box-shadow 0.3s ease 0s;
+}
+
+.checklist li:nth-child(n) p:hover, .checklist li:nth-child(n) p:focus {
+    box-shadow: 3px 3px 5px 3px rgba(0,0,0,0.7);
+    z-index: 10;
+}
+
+.checklist li:nth-child(1) p, .checklist li:nth-child(2) p {
+    box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.8);
+}
+
+.checklist li:nth-child(1) p, .checklist li:nth-child(3) p {
+    font-family: 'Galdeano', sans-serif;
+    font-weight: 600;
+}
+
+.checklist li:nth-child(1) p {
+    background-color: #FFF;
+    font-size: 4.5rem;
+    padding: 5px 30px;
+    z-index: 3;
+}
+
+.checklist li:nth-child(2) p {
+    background-color: #ECEA1C;
+    font-family: 'Germania One', cursive;
+    padding: 12px 0 5px 0;
+    top: -8px;
+    left: 20px;
+    z-index: 2;
+}
+
+.checklist li:nth-child(3) p {
+    background-color: #FFF;
+    font-size: 3.75rem;
+    padding: 15px 5px 0 5px;
+    top: -14px;
+    left: -20px;
+    transform: rotate(-4deg);
+}
+
+.page-footer {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.slogan {
+    font: 400 1rem/1.25 'Galdeano', sans-serif;
+}
+
+
+/* .. пришлось использовать, потому что эти огрмные надписи сбоку не вписываются в концепцию :) */
+@media screen and (max-width: 640px) {
+    .checklist p {
+        font-size: 2.25rem !important;
+        transform: initial !important;
+        top: 0 !important;
+        left: 0 !important;
+        padding: 5px 10px !important;
+        letter-spacing: 2px !important;
+    }
+
+    /* ну и телефон с надписью надо выровнять по центру, а то не красиво */
+    .page-main .content {
+        flex-direction: column;
+    }
+
+    /* и вобще */
+    .phone img {
+        max-height: 500px;
+    }
+}
+
+/* У меня вопрос, по поводу "css без привязки в структуре html документа" - что имеется в виду?
+    не использовать конструкции типа ".checklist li p" не привязывать свойста тегам напрямую ? */
